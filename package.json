@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@distube/ytdl-core": "^4.16.4",
+    "@whiskeysockets/baileys": "^6.7.16",
+    "axios": "^1.8.2",
+    "fs": "^0.0.1-security"
+  }
+}
