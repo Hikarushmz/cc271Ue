@@ -13,4 +13,8 @@
     "node": "22.12.0"
   },
   "main": "bot.js"
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 792cc28 (Fix install issue)
