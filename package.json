@@ -6,7 +6,6 @@
     "fs": "^0.0.1-security"
   },
   "scripts": {
-    "postinstall": "pip3 install -U yt-dlp",
     "start": "node bot.js"
   },
   "engines": {
