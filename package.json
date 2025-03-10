@@ -6,7 +6,10 @@
     "fs": "^0.0.1-security"
   },
   "scripts": {
-    "preinstall": "apt update && apt install -y python3 python3-pip && pip3 install -U yt-dlp",
+    "preinstall": "pip3 install -U yt-dlp",
     "start": "node bot.js"
+  },
+  "engines": {
+    "node": "22.12.0"
   }
 }
