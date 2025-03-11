@@ -461,6 +461,48 @@ async function downloadAllFormats(url) {
     }
 }
 
+// Fungsi untuk menghapus file lama di folder videos/
+function deleteOldFiles() {
+    const videoDir = path.join(__dirname, 'videos');
+
+    fs.readdir(videoDir, (err, files) => {
+        if (err) {
+            console.error('Gagal membaca folder videos:', err);
+            return;
+        }
+
+        const now = Date.now();
+
+        files.forEach(file => {
+            const filePath = path.join(videoDir, file);
+            fs.stat(filePath, (err, stats) => {
+                if (err) {
+                    console.error(`Gagal mendapatkan info file: ${filePath}`, err);
+                    return;
+                }
+
+                const fileAge = (now - stats.mtimeMs) / (1000 * 60 * 60); // Ubah ke jam
+
+                if (fileAge > 24) { // Jika file lebih tua dari 24 jam
+                    fs.unlink(filePath, (err) => {
+                        if (err) {
+                            console.warn(`Gagal menghapus file: ${filePath}`);
+                        } else {
+                            console.log(`File lama dihapus: ${filePath}`);
+                        }
+                    });
+                }
+            });
+        });
+    });
+}
+
+// Jalankan pembersihan file lama setiap 12 jam
+setInterval(deleteOldFiles, 12 * 60 * 60 * 1000); // 12 jam dalam milidetik
+
+console.log('🔄 Pembersihan file lama akan berjalan setiap 12 jam...');
+
+
 
 module.exports = {
     downloadYouTubeVideo: tryAllYouTubeMethods,
