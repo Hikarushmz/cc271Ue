@@ -79,7 +79,7 @@ async function startBot() {
 
             if (command === '!dl') {
                 if (args.length < 3) {
-                    await sock.sendMessage(from, { text: '❌ Format salah. Gunakan: `!dl <fb|ig|yt|tt|all(recomended)> <url>`' });
+                    await sock.sendMessage(from, { text: '❌ Format salah. Gunakan: `!dl <all> <url>`' });
                     return;
                 }
 
@@ -113,7 +113,7 @@ async function startBot() {
                             downloadResult = await downloadAllFormats(url);
                             break;    
                         default:
-                            await sock.sendMessage(from, { text: '❌ Platform tidak didukung. Gunakan: fb, ig, yt,tt atau all.' });
+                            await sock.sendMessage(from, { text: '❌ Platform tidak didukung. Gunakan: all.' });
                             return;
                     }
 
@@ -128,7 +128,7 @@ async function startBot() {
                     await sock.sendMessage(from, {
                         video: fileContent,
                         mimetype: mimeType,
-                        caption: `✅ Media dari ${platform.toUpperCase()} berhasil didownload!`
+                        caption: `✅ Media berhasil didownload!`
                     });
 
                     // Hapus file setelah dikirim
