@@ -3,7 +3,7 @@ const crypto = require('crypto');
 const fs = require('fs');
 const baileys = require('@whiskeysockets/baileys');
 const express = require('express');
-const LRU = require('lru-cache').default;
+const { LRUCache } = require('lru-cache');
 
 const {
   downloadYouTubeVideo,
@@ -24,7 +24,7 @@ app.get('/', (_req, res) => res.send('Bot is alive'));
 app.listen(PORT, () => console.log(`🌐 Express listening on port ${PORT}`));
 
 // 2) LRU cache untuk processedMessages (max umur 10 menit)
-const processedMessages = new LRU({
+const processedMessages = new LRUCache({
   max: 5000,
   ttl: 1000 * 60 * 10,    // 10 menit
 });
