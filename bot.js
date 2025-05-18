@@ -3,7 +3,7 @@ const crypto = require('crypto');
 const fs = require('fs');
 const baileys = require('@whiskeysockets/baileys');
 const express = require('express');
-const LRU = require('lru-cache');
+const LRU = require('lru-cache').default;
 
 const {
   downloadYouTubeVideo,
