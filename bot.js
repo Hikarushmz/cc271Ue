@@ -150,7 +150,7 @@ async function startBot() {
           } catch (error) {
             console.error('Download error:', error);
             await sock.sendMessage(from, { 
-              text: `❌ Gagal mengunduh:\n${error.message}\nPastikan link valid dan coba lagi.`
+              text: `❌ Gagal mengunduh:\n${error.message}\nPastikan link valid atau bot sedang mengalami banyak permintaan.`
             });
           }
         }
