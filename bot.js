@@ -15,7 +15,7 @@ const {
 
 const { default: makeWASocket, useMultiFileAuthState } = baileys;
 
-const BOT_NUMBER = '6283160034028@s.whatsapp.net';
+const BOT_NUMBER = '62895321624744@s.whatsapp.net';
 const DEVELOPER_NUMBER = '62895321624744@s.whatsapp.net'; // GANTI DENGAN NOMOR DEVELOPER
 const PORT = process.env.PORT || 3000;
 
